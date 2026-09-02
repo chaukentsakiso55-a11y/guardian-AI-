@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "281268054638",
+    "project_id": "device-streaming-413a7395",
+    "storage_bucket": "device-streaming-413a7395.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281268054638:android:16216f2635d2faae6cd47f",
+        "android_client_info": {
+          "package_name": "com.cyberpulse.guardianai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYfhh6KdATkAP4a5i8jD9Q7vbPGk7Tspc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
