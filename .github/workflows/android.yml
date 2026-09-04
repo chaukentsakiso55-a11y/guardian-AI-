@@ -27,5 +27,5 @@ jobs:
       - run: ./gradlew testDebugUnitTest assembleDebug --stacktrace
       - uses: actions/upload-artifact@v4
         with:
-          name: guardianai-v0.3-premium-debug-apk
+          name: guardianai-v0.4-context-aware-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
