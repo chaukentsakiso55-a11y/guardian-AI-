@@ -15,9 +15,12 @@ jobs:
           cat .ci/guardian_chunk_*.b64 > /tmp/guardian_payload.b64
           base64 -d /tmp/guardian_payload.b64 > /tmp/guardian_payload.zip
           unzip -o /tmp/guardian_payload.zip -d .
-          cat .ci/context_chunk_*.b64 > /tmp/guardian_premium_overlay.b64
-          base64 -d /tmp/guardian_premium_overlay.b64 > /tmp/guardian_premium_overlay.zip
-          unzip -o /tmp/guardian_premium_overlay.zip -d .
+          cat .ci/context_chunk_*.b64 > /tmp/guardian_context_overlay.b64
+          base64 -d /tmp/guardian_context_overlay.b64 > /tmp/guardian_context_overlay.zip
+          unzip -o /tmp/guardian_context_overlay.zip -d .
+          cat .ci/ui_chunk_*.b64 > /tmp/guardian_ui_overlay.b64
+          base64 -d /tmp/guardian_ui_overlay.b64 > /tmp/guardian_ui_overlay.zip
+          unzip -o /tmp/guardian_ui_overlay.zip -d .
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -28,5 +31,5 @@ jobs:
       - run: ./gradlew testDebugUnitTest assembleDebug --stacktrace
       - uses: actions/upload-artifact@v4
         with:
-          name: guardianai-v0.4-context-aware-debug-apk
+          name: guardianai-v0.5-neon-blue-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
