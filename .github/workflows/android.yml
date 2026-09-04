@@ -15,6 +15,19 @@ jobs:
           cat .ci/guardian_chunk_*.b64 > /tmp/guardian_payload.b64
           base64 -d /tmp/guardian_payload.b64 > /tmp/guardian_payload.zip
           unzip -o /tmp/guardian_payload.zip -d .
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('app/src/main/java/com/cyberpulse/guardianai/MainActivity.kt')
+          s = p.read_text()
+          s = s.replace('OutlinedButton(Modifier.fillMaxWidth(), enabled = !busy, onClick = { onAuthenticated("Guest") })', 'OutlinedButton(onClick = { onAuthenticated("Guest") }, modifier = Modifier.fillMaxWidth(), enabled = !busy)')
+          s = s.replace('Button(\n            Modifier.fillMaxWidth(),\n            onClick = { if (PinStore.verify(context, pin)) onDone() else error = "Incorrect PIN." },', 'Button(\n            onClick = { if (PinStore.verify(context, pin)) onDone() else error = "Incorrect PIN." },\n            modifier = Modifier.fillMaxWidth(),')
+          s = s.replace('Button(\n                Modifier.fillMaxWidth(),\n                onClick = {', 'Button(\n                onClick = {', 1)
+          s = s.replace('                    onComplete()\n                },\n                colors = ButtonDefaults.buttonColors(containerColor = Cyan, contentColor = Ink)', '                    onComplete()\n                },\n                modifier = Modifier.fillMaxWidth(),\n                colors = ButtonDefaults.buttonColors(containerColor = Cyan, contentColor = Ink)', 1)
+          s = s.replace('Button(\n                    Modifier.fillMaxWidth(), onClick = {', 'Button(\n                    onClick = {')
+          s = s.replace('                        }\n                    }, colors = ButtonDefaults.buttonColors(containerColor = Cyan, contentColor = Ink)', '                        }\n                    }, modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(containerColor = Cyan, contentColor = Ink)', 1)
+          s = s.replace('OutlinedButton(Modifier.fillMaxWidth(), onClick = { showDisablePin = true })', 'OutlinedButton(onClick = { showDisablePin = true }, modifier = Modifier.fillMaxWidth())')
+          p.write_text(s)
+          PY
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
