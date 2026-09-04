@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "911145387704",
-    "project_id": "guardian-ai-47010",
-    "storage_bucket": "guardian-ai-47010.firebasestorage.app"
+    "project_number": "840086746884",
+    "project_id": "guardian-c2dfc",
+    "storage_bucket": "guardian-c2dfc.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:911145387704:android:08757f7e597d763a51d64d",
+        "mobilesdk_app_id": "1:840086746884:android:93315c23e83b6597a98251",
         "android_client_info": {
-          "package_name": "com.cyberpulse.guardianAI"
+          "package_name": "comcyberpulse.guardianai"
         }
       },
       "oauth_client": [
         {
-          "client_id": "911145387704-10o5530v7echo2ifj4qfbqm7r3cnd71r.apps.googleusercontent.com",
+          "client_id": "840086746884-ucirt9o76gthq4q6qb4uspbp8te3f928.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBTYr2-7DfkxU3uk_RcL3BeyximYzoA6Rk"
+          "current_key": "AIzaSyBrq6l1-Nhb7svcnlE6Fh5CuUT0YoKGEPg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "911145387704-10o5530v7echo2ifj4qfbqm7r3cnd71r.apps.googleusercontent.com",
+              "client_id": "840086746884-ucirt9o76gthq4q6qb4uspbp8te3f928.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
