@@ -1,0 +1,88 @@
+e}.auth-panel{padding:30px 22px}.mobile-nav{display:grid;position:fixed;bottom:0;left:0;right:0;z-index:30;grid-template-columns:repeat(4,1fr);padding:8px 5px 11px;background:rgba(2,7,12,.96);border-top:1px solid var(--line);backdrop-filter:blur(15px)}.mobile-nav button{border:0;background:none;color:#7398a8;font-size:10px;display:grid;gap:2px;place-items:center}.mobile-nav button b{font-size:18px;color:#9cc8d8}.mobile-nav button.active{color:white}.mobile-nav button.active b{color:var(--cyan);text-shadow:0 0 12px var(--cyan)}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside>
+  <div class="brand"><div class="mini-logo"><img src="cyber_pulse.webp"></div><div><b>GUARDIANAI</b><small>CYBER PULSE SAFETY</small></div></div>
+  <div class="nav">
+    <button class="active" data-page="home"><span>◈</span>Overview</button>
+    <button data-page="ai"><span>✦</span>Safety AI</button>
+    <button data-page="device"><span>▣</span>Device Control</button>
+    <button data-page="settings"><span>⚙</span>Settings</button>
+  </div>
+  <div class="side-status"><i></i><b>Protection active</b><br><small>Offline core ready</small></div>
+</aside>
+<main>
+  <div class="top"><div class="crumb">GUARDIANAI / <b id="crumb">Overview</b></div><button id="openAuth">Sign in</button></div>
+
+  <section id="home" class="page active">
+    <div class="hero"><div class="hero-grid">
+      <div><div class="kicker">● SYSTEM PROTECTED</div><h1>Protection that<br><em>stays awake.</em></h1><p>GuardianAI combines local safety intelligence with Android-approved protection services to watch supported external apps while keeping educational safety questions available.</p><div class="hero-actions"><button class="primary" data-go="device">Protection controls</button><button class="ghost" data-go="ai">Open Safety AI</button></div></div>
+      <div class="core"><div class="ring"></div><div class="pulse-art"><img src="cyber_pulse.webp"></div></div>
+    </div></div>
+    <div class="metrics"><div class="metric"><b>ACTIVE</b><small>Protection core</small></div><div class="metric"><b>LOCAL</b><small>Intent classifier</small></div><div class="metric"><b>4</b><small>Safety layers</small></div><div class="metric"><b>READY</b><small>Safety AI</small></div></div>
+    <div class="grid2">
+      <div class="card"><h3>Protection layers</h3><div class="row"><div><b>External app watch</b><small>Accessibility-supported search and input fields</small></div><span class="state">ACTIVE</span></div><div class="row"><div><b>Context-aware adult-content guard</b><small>Allows educational questions; blocks access-seeking intent</small></div><span class="state">ACTIVE</span></div><div class="row"><div><b>Scam & phishing shield</b><small>Local suspicious-message patterns</small></div><span class="state">ACTIVE</span></div><div class="row"><div><b>Safety AI</b><small>Offline reference-based explanations</small></div><span class="state">READY</span></div></div>
+      <div class="card"><h3>Guardian status</h3><p class="muted"><span class="dot"></span>Device protection is running.</p><p class="muted">GuardianAI never silently grants itself Android special access. If Accessibility is not enabled, the app will open the official Android approval screen.</p></div>
+    </div>
+  </section>
+
+  <section id="ai" class="page">
+    <div class="section-head"><div><h2>Safety AI</h2><p class="muted">Ask safety, health, privacy and online-risk questions without triggering the external-app blocker.</p></div><span class="badge">OFFLINE READY</span></div>
+    <div class="ai"><div class="card chat"><div id="chatBody" class="chat-body"><div class="msg ai">I’m GuardianAI Safety AI. Educational questions about protected topics are allowed here. I can explain risks, warning signs, safer choices, scams, phishing, privacy and cyberbullying.</div></div><div class="composer"><textarea id="aiInput" placeholder="Ask a safety question..."></textarea><button id="sendAi">ASK</button></div></div><div class="card"><h3>Designed for learning</h3><p class="muted">The external blocker uses intent, not just keywords. A safety question should remain available while access-seeking searches in supported external apps can be intercepted.</p></div></div>
+  </section>
+
+  <section id="device" class="page">
+    <div class="section-head"><div><h2>Device Control</h2><p class="muted">Android-approved permissions and protection services.</p></div><span class="badge">ANDROID</span></div>
+    <div class="card">
+      <div class="row native-row" data-native="access"><div><b>Accessibility Protection</b><small>Required for supported external-app search interception</small></div><button class="ghost">Open</button></div>
+      <div class="row native-row" data-native="usage"><div><b>Usage Access</b><small>Helps identify the active app</small></div><button class="ghost">Open</button></div>
+      <div class="row native-row" data-native="notify"><div><b>Notification Access</b><small>Scam and phishing notification checks</small></div><button class="ghost">Open</button></div>
+    </div>
+  </section>
+
+  <section id="settings" class="page">
+    <div class="section-head"><div><h2>Protected Settings</h2><p class="muted">Critical changes stay behind the GuardianAI PIN.</p></div><span class="badge">6-DIGIT PIN</span></div>
+    <div class="card"><div class="row"><div><b>Context-aware adult-content filter</b><small>Block access-seeking intent, not educational discussion</small></div><div class="toggle on"></div></div><div class="row"><div><b>Scam & phishing detection</b><small>Local pattern protection</small></div><div class="toggle on"></div></div><div class="row"><div><b>Safety alerts</b><small>Explain why an external action was blocked</small></div><div class="toggle on"></div></div></div>
+    <div class="card" style="margin-top:14px"><h3>Critical controls</h3><button class="danger" id="disableBtn">Disable background protection</button></div>
+  </section>
+</main>
+</div>
+
+<nav class="mobile-nav"><button class="active" data-page="home"><b>◈</b>Home</button><button data-page="ai"><b>✦</b>Safety AI</button><button data-page="device"><b>▣</b>Device</button><button data-page="settings"><b>⚙</b>Settings</button></nav>
+
+<div class="auth-overlay" id="authOverlay">
+  <div class="auth-shell" id="authShell">
+    <button class="close" id="closeAuth">×</button>
+    <div class="lamp-zone"><div class="lamp"></div><div class="beam"></div><div class="auth-art"><img src="cyber_pulse.webp"></div><div class="lamp-copy"><b>Cyber Pulse Guardian Access</b><p>Secure identity and protection controls illuminated by the GuardianAI safety layer.</p></div></div>
+    <div class="auth-panel">
+      <div style="font-size:9px;letter-spacing:1.6px;color:#77a79b;margin-bottom:11px">— GUARDIAN ACCESS</div>
+      <h2 id="authTitle">Welcome <strong>Back.</strong></h2><p id="authSub">Pull the cord to illuminate your path</p>
+      <div class="field"><label>EMAIL</label><input id="authEmail" type="email" placeholder="you@example.com"></div>
+      <div class="field"><label>PASSWORD</label><input id="authPassword" type="password" placeholder="••••••••"></div>
+      <div class="field register-only"><label>CONFIRM PASSWORD</label><input id="authConfirm" type="password" placeholder="••••••••"></div>
+      <button class="submit" id="submitAuth">SIGN IN →</button><div class="or">or</div>
+      <div class="social"><button id="googleBtn">G&nbsp;&nbsp;Google</button><button id="guestBtn">◈&nbsp;&nbsp;Guest</button></div>
+      <button class="anon" id="anonymousBtn">Anonymous Firebase session</button>
+      <div class="switch"><span id="switchLead">New to GuardianAI?</span> <button id="switchAuth">Create account</button></div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const pages={home:'Overview',ai:'Safety AI',device:'Device Control',settings:'Settings'};
+function showPage(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===id));document.getElementById('crumb').textContent=pages[id]||id;scrollTo(0,0)}
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>showPage(b.dataset.page));document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>showPage(b.dataset.go));document.querySelectorAll('.toggle').forEach(t=>t.onclick=()=>t.classList.toggle('on'));
+const overlay=document.getElementById('authOverlay'),shell=document.getElementById('authShell');let register=false;
+document.getElementById('openAuth').onclick=()=>overlay.classList.add('show');document.getElementById('closeAuth').onclick=()=>overlay.classList.remove('show');
+function toast(s){let t=document.getElementById('toast');t.textContent=s;t.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>t.classList.remove('show'),2400)}function native(){return typeof GuardianNative!=='undefined'}
+document.getElementById('switchAuth').onclick=()=>{register=!register;shell.classList.toggle('register',register);document.getElementById('authTitle').innerHTML=register?'Create <strong>Account.</strong>':'Welcome <strong>Back.</strong>';document.getElementById('authSub').textContent=register?'Create your secure GuardianAI identity.':'Pull the cord to illuminate your path';document.getElementById('submitAuth').textContent=register?'CREATE ACCOUNT →':'SIGN IN →';document.getElementById('switchLead').textContent=register?'Already protected?':'New to GuardianAI?';document.getElementById('switchAuth').textContent=register?'Sign in':'Create account'};
+document.getElementById('submitAuth').onclick=()=>{let e=document.getElementById('authEmail').value.trim(),p=document.getElementById('authPassword').value,c=document.getElementById('authConfirm').value;if(!e||p.length<6)return toast('Enter a valid email and password.');if(register&&p!==c)return toast('Passwords do not match.');if(native())GuardianNative.emailAuth(e,p,register);else toast('Native authentication bridge unavailable.')};
+document.getElementById('googleBtn').onclick=()=>native()?GuardianNative.googleAuth():toast('Native bridge unavailable.');document.getElementById('guestBtn').onclick=()=>native()?GuardianNative.guestAuth():toast('Native bridge unavailable.');document.getElementById('anonymousBtn').onclick=()=>native()?GuardianNative.anonymousAuth():toast('Native bridge unavailable.');
+window.guardianAuthSuccess=m=>{overlay.classList.remove('show');document.getElementById('openAuth').textContent=m;toast('Authenticated with '+m+'.')};window.guardianAuthError=m=>toast(m||'Authentication failed.');window.guardianRequireAuth=()=>overlay.classList.add('show');window.guardianStatus=m=>toast(m);
+document.getElementById('disableBtn').onclick=()=>native()?GuardianNative.disableProtection():toast('Native bridge unavailable.');
+document.querySelectorAll('.native-row').forEach(r=>r.onclick=()=>{if(!native())return toast('Native bridge unavailable.');if(r.dataset.native==='access')GuardianNative.openAccessibility();if(r.dataset.native==='usage')GuardianNative.openUsageAccess();if(r.dataset.native==='notify')GuardianNative.openNotificationAccess();});
+const input=document.getElementById('aiInput'),body=document.getElementById('chatBody');function ask(){let q=input.value.trim();if(!q)return;let u=document.createElement('div');u.className='msg user';u.textContent=q;body.appendChild(u);let a=document.createElement('div');a.className='msg ai';a.textContent=native()?GuardianNative.askSafetyAI(q):'Native Safety AI bridge unavailable.';body.appendChild(a);input.value='';body.scrollTop=body.scrollHeight}document.getElementById('sendAi').onclick=ask;input.onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();ask()}};
+</script>
+</body></html>
