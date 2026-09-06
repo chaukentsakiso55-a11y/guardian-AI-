@@ -2,7 +2,7 @@ name: Android build
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "guardianai-v1-protection-build"]
   pull_request:
 
 jobs:
@@ -10,6 +10,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Restore GuardianAI source payload
+        run: |
+          cat .ci/guardian_chunk_*.b64 > /tmp/guardian_payload.b64
+          base64 -d /tmp/guardian_payload.b64 > /tmp/guardian_payload.zip
+          unzip -o /tmp/guardian_payload.zip -d .
+          cat .ci/context_chunk_*.b64 > /tmp/guardian_context_overlay.b64
+          base64 -d /tmp/guardian_context_overlay.b64 > /tmp/guardian_context_overlay.zip
+          unzip -o /tmp/guardian_context_overlay.zip -d .
+          cat .ci/ui_chunk_*.b64 > /tmp/guardian_ui_overlay.b64
+          base64 -d /tmp/guardian_ui_overlay.b64 > /tmp/guardian_ui_overlay.zip
+          unzip -o /tmp/guardian_ui_overlay.zip -d .
+          mkdir -p app/src/main/assets
+          cat .ci/ui6_part_00 .ci/ui6_part_01 > app/src/main/assets/guardian_ui.html
+          base64 -d .ci/cyber_pulse_v06.webp.b64 > app/src/main/assets/cyber_pulse.webp
+          cp .ci/MainActivity_v07.kt app/src/main/java/com/cyberpulse/guardianai/MainActivity.kt
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          p = Path('app/build.gradle.kts')
+          s = p.read_text()
+          s = re.sub(r'versionCode\s*=\s*\d+', 'versionCode = 7', s)
+          s = re.sub(r'versionName\s*=\s*"[^"]+"', 'versionName = "0.7.0"', s)
+          p.write_text(s)
+          PY
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -20,5 +44,5 @@ jobs:
       - run: ./gradlew testDebugUnitTest assembleDebug --stacktrace
       - uses: actions/upload-artifact@v4
         with:
-          name: debug-apk
+          name: guardianai-v0.7-gemini-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk

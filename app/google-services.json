@@ -1,26 +1,36 @@
 {
   "project_info": {
-    "project_number": "281268054638",
-    "project_id": "device-streaming-413a7395",
-    "storage_bucket": "device-streaming-413a7395.firebasestorage.app"
+    "project_number": "840086746884",
+    "project_id": "guardian-c2dfc",
+    "storage_bucket": "guardian-c2dfc.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:281268054638:android:16216f2635d2faae6cd47f",
+        "mobilesdk_app_id": "1:840086746884:android:93315c23e83b6597a98251",
         "android_client_info": {
-          "package_name": "com.cyberpulse.guardianai"
+          "package_name": "comcyberpulse.guardianai"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "840086746884-ucirt9o76gthq4q6qb4uspbp8te3f928.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyAYfhh6KdATkAP4a5i8jD9Q7vbPGk7Tspc"
+          "current_key": "AIzaSyBrq6l1-Nhb7svcnlE6Fh5CuUT0YoKGEPg"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840086746884-ucirt9o76gthq4q6qb4uspbp8te3f928.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
