@@ -24,14 +24,14 @@ jobs:
           mkdir -p app/src/main/assets
           cat .ci/ui6_part_00 .ci/ui6_part_01 > app/src/main/assets/guardian_ui.html
           base64 -d .ci/cyber_pulse_v06.webp.b64 > app/src/main/assets/cyber_pulse.webp
-          cp .ci/MainActivity_v06.kt app/src/main/java/com/cyberpulse/guardianai/MainActivity.kt
+          cp .ci/MainActivity_v07.kt app/src/main/java/com/cyberpulse/guardianai/MainActivity.kt
           python3 - <<'PY'
           from pathlib import Path
           import re
           p = Path('app/build.gradle.kts')
           s = p.read_text()
-          s = re.sub(r'versionCode\s*=\s*\d+', 'versionCode = 6', s)
-          s = re.sub(r'versionName\s*=\s*"[^"]+"', 'versionName = "0.6.0"', s)
+          s = re.sub(r'versionCode\s*=\s*\d+', 'versionCode = 7', s)
+          s = re.sub(r'versionName\s*=\s*"[^"]+"', 'versionName = "0.7.0"', s)
           p.write_text(s)
           PY
       - uses: actions/setup-java@v4
@@ -44,5 +44,5 @@ jobs:
       - run: ./gradlew testDebugUnitTest assembleDebug --stacktrace
       - uses: actions/upload-artifact@v4
         with:
-          name: guardianai-v0.6-approved-ui-debug-apk
+          name: guardianai-v0.7-gemini-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
